@@ -1,0 +1,19 @@
+# `browserstack` environment config goes here
+modules:
+    config:
+        WebDriver:
+            url: 'https://www.google.com/'
+            host: 'hub.browserstack.com'
+            port: 80
+            browser: 'edge'
+            wait: 0.2
+            window_size: maximize
+            capabilities:
+                'browserstack.user': 'swarn1'
+                'browserstack.key': '1fsiq8HukVvM6ZKZ64ym'
+                'browserVersion': '45.0'
+                'browserstack.video': 'true'
+                'browserstack.debug': 'true'
+                'browserstack.name': 'test_name'
+                'browserstack.os': 'WINDOWS'
+                'browserstack.os_version' : '10'

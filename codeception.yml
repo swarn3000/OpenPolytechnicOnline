@@ -1,0 +1,27 @@
+paths:
+    tests: tests
+    output: tests/_output
+    data: tests/_data
+    support: tests/_support
+    envs: tests/_envs
+actor_suffix: Tester
+extensions:
+    enabled:
+    modules:
+       - Db:
+            dsn: "sqlsrv:Server=localhost,1433;Database=Drugs"
+            user: 'sa'
+            password: 'Creative'
+            dump: 'tests/_data/dump.sql'
+            populate: true # run populator before all tests
+            cleanup: true # run populator before each test
+            populator: 'mssql -u $user -h $host $dbname < $dump'
+       - Codeception\Extension\RunFailed
+       - Codeception\Extension\Recorder
+gherkin:
+     contexts: 
+       default:
+        - AcceptanceTester
+        - StaffRequestStep
+params:
+        - env
